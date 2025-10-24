@@ -94,27 +94,36 @@ Use the filters section to find specific customers:
 ```
 plant-crm/
 ├── src/
+│   ├── app/                 # Next.js App Router
+│   │   ├── api/            # API Routes
+│   │   │   ├── customers/  # Customer endpoints
+│   │   │   ├── orders/     # Order endpoints
+│   │   │   ├── tags/       # Tags endpoints
+│   │   │   └── health/     # Health check
+│   │   ├── layout.tsx      # Root layout
+│   │   ├── page.tsx        # Home page
+│   │   └── globals.css     # Global styles
+│   ├── components/         # React components
+│   │   ├── CustomerList.tsx
+│   │   ├── CustomerFilters.tsx
+│   │   ├── CustomerModal.tsx
+│   │   ├── OrderModal.tsx
+│   │   └── CustomerDetailsModal.tsx
 │   ├── database/
-│   │   ├── schema.sql       # Database schema
-│   │   ├── db.ts            # Database connection
-│   │   └── migrate.ts       # Migration runner
+│   │   ├── schema.sql      # Database schema
+│   │   ├── db.ts           # Database connection
+│   │   └── migrate.ts      # Migration runner
 │   ├── models/
-│   │   ├── Customer.ts      # Customer data model
-│   │   ├── Order.ts         # Order data model
-│   │   ├── CustomerNote.ts  # Notes model
-│   │   └── CustomerTag.ts   # Tags model
-│   ├── routes/
-│   │   ├── customers.ts     # Customer API routes
-│   │   ├── orders.ts        # Order API routes
-│   │   └── tags.ts          # Tags API routes
-│   ├── types.ts             # TypeScript types
-│   └── server.ts            # Express server
-├── public/
-│   ├── index.html           # Web interface
-│   ├── styles.css           # Styling
-│   └── app.js               # Frontend JavaScript
+│   │   ├── Customer.ts     # Customer data model
+│   │   ├── Order.ts        # Order data model
+│   │   ├── CustomerNote.ts # Notes model
+│   │   └── CustomerTag.ts  # Tags model
+│   ├── lib/
+│   │   └── db-init.ts      # Database initialization
+│   └── types.ts            # TypeScript types
 ├── data/
-│   └── plant-crm.db         # SQLite database (created on first run)
+│   └── plant-crm.db        # SQLite database (created on first run)
+├── next.config.js          # Next.js configuration
 └── package.json
 ```
 
@@ -195,10 +204,11 @@ plant-crm/
 
 ## Technology Stack
 
-- **Backend**: Node.js + TypeScript + Express
+- **Framework**: Next.js 14 (App Router)
+- **Frontend**: React 18 + TypeScript
+- **Backend**: Next.js API Routes
 - **Database**: SQLite (better-sqlite3)
-- **Frontend**: Vanilla HTML/CSS/JavaScript
-- **Styling**: Modern CSS with gradients and responsive design
+- **Styling**: CSS Modules with modern gradients and responsive design
 
 ## Contributing
 
