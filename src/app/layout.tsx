@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
+import Navigation from '@/components/Navigation';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Plant CRM - Customer Relations Management',
-  description: 'Track your plant business customers across PalmStreet and Etsy',
+  title: 'Plant Business Management System',
+  description: 'Complete business management for plant sellers - CRM, inventory, invoices, and more',
 };
 
 export default function RootLayout({
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navigation />
+        <main className="main-wrapper">{children}</main>
+      </body>
     </html>
   );
 }
